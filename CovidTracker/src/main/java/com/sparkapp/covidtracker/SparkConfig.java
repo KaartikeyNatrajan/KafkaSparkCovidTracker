@@ -1,4 +1,5 @@
 package com.sparkapp.covidtracker;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.springframework.beans.factory.annotation.Value;

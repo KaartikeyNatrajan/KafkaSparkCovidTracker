@@ -1,6 +1,9 @@
 package com.sparkapp.covidtracker;
 
 import com.google.gson.Gson;
+import com.sparkapp.covidtracker.models.Case;
+import com.sparkapp.covidtracker.models.IndiaCase;
+import com.sparkapp.covidtracker.models.UsaCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -24,14 +27,12 @@ public class Consumer {
 
     @KafkaListener(topics = "usa-topic", groupId = "group_id")
     public void consumeUsa(String message) throws IOException {
-//        logger.info(String.format("#### -> Consumed message -> %s", message));
         Path filePath = Paths.get("data.json");
         UsaCase usacase = new Gson().fromJson(message, UsaCase.class);
-        // case.country = "USA";
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyyMMdd");
         Date mydate = null;
         try {
-            mydate = myFormat.parse(""+usacase.date);
+            mydate = myFormat.parse("" + usacase.date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -50,12 +51,11 @@ public class Consumer {
 
     @KafkaListener(topics = "india-topic", groupId = "group_id")
     public void consumeIndia(String message) throws IOException {
-//        logger.info(String.format("#### -> Consumed message -> %s", message));
         Path filePath = Paths.get("data.json");
         IndiaCase indiacase = new Gson().fromJson(message, IndiaCase.class);
 
         SimpleDateFormat myFormat = new SimpleDateFormat("dd MMMM");
-        Date mydate = null ;
+        Date mydate = null;
         try {
             mydate = myFormat.parse(indiacase.date.trim());
         } catch (ParseException e) {

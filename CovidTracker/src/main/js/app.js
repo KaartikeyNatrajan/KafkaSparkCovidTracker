@@ -33,7 +33,7 @@ class MyCoolChart extends React.Component {
 		const labels = []
 		for (var i = this.props.chartData.length - 1; i >= 0; i--) {
 			cases.push(this.props.chartData[i].cases);
-			labels.push(this.props.chartData[i].dateRep);
+			labels.push(this.props.chartData[i].date);
 
 		}
 

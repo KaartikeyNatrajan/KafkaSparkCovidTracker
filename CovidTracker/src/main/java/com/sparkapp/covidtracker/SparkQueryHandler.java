@@ -1,13 +1,16 @@
 package com.sparkapp.covidtracker;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.sparkapp.covidtracker.models.Case;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-class SparkQueryHandler {
-    List<Case> runQuery() {
+
+public class SparkQueryHandler {
+    public List<Case> runQuery() {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("Java Spark SQL data sources example")
@@ -27,7 +30,7 @@ class SparkQueryHandler {
         people.printSchema();
         people.createOrReplaceTempView("data");
 
-        Dataset<Row> namesDF = spark.sql("SELECT * FROM data WHERE deaths = 1 LIMIT 10;");
+        Dataset<Row> namesDF = spark.sql("SELECT * FROM data LIMIT 10;");
         namesDF.show();
         List<Case> cases = new ArrayList<>();
         namesDF

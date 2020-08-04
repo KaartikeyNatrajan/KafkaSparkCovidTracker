@@ -1,5 +1,9 @@
-package com.sparkapp.covidtracker;
+package com.sparkapp.covidtracker.controllers;
+
 import com.google.gson.Gson;
+import com.sparkapp.covidtracker.models.Case;
+import com.sparkapp.covidtracker.models.CovidData;
+import com.sparkapp.covidtracker.SparkQueryHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 

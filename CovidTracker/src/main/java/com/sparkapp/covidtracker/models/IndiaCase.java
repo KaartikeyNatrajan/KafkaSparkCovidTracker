@@ -1,4 +1,4 @@
-package com.sparkapp.covidtracker;
+package com.sparkapp.covidtracker.models;
 
 public class IndiaCase {
     public String date;

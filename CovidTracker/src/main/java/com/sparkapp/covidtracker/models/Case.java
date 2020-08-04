@@ -1,4 +1,4 @@
-package com.sparkapp.covidtracker;
+package com.sparkapp.covidtracker.models;
 
 import java.util.Date;
 
