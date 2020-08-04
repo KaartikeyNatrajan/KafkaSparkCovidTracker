@@ -27,7 +27,7 @@ class SparkQueryHandler {
         people.printSchema();
         people.createOrReplaceTempView("data");
 
-        Dataset<Row> namesDF = spark.sql("SELECT * FROM data WHERE deaths = 1;");
+        Dataset<Row> namesDF = spark.sql("SELECT * FROM data WHERE deaths = 1 LIMIT 10;");
         namesDF.show();
         List<Case> cases = new ArrayList<>();
         namesDF
