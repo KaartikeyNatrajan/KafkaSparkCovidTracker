@@ -1,4 +1,4 @@
-package com.example.kafkastream;
+package com.sparkapp.covidtracker;
 
 public class UsaCase {
     public int date;
